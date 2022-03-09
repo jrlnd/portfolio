@@ -27,12 +27,11 @@ const DesignPortfolio = ({ projectData, setImages, setIsLightBoxOpen  }) => {
           )}
         </Scene>
 
-        <div id="design-projects-content" className="w-full grid grid-cols-3 gap-4 md:gap-8 text-theme-gray-900">
+        <div id="design-projects-content" className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-theme-gray-900">
         <Scene duration={500} triggerElement="#design-projects-content" triggerHook={0.8}>
           {(progress) => (
-          <Tween from={{ autoAlpha: 0, y: '-15%' }} to={{ autoAlpha: 1, y: 0 }} stagger={0.4} totalProgress={progress} ease="back.out(1.7)" paused>
+          <Tween from={{ autoAlpha: 0, transform: 'scale(0.8)' }} to={{ autoAlpha: 1, transform: 'scale(1)' }} stagger={0.4} totalProgress={progress} ease="back.out(1.7)" paused>
           {projectData.map((project, i) => (
-            
             <button key={i} className="group relative bg-gray-900 w-full rounded-lg aspect-square overflow-hidden" onClick={() => openLightBox(project.screenshotsCollection.items)}>
               <img src={project.screenshotsCollection.items[0].url} alt={project.title} className="h-full object-cover" />
               <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-theme-white-100 p-4 md:p-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
