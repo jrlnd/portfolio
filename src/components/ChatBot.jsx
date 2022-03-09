@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import Image from "next/image";
 import { Tween } from "react-gsap";
-import { ChatAlt2Icon, XIcon, ChevronRightIcon } from "@heroicons/react/solid"
 import emoji from 'react-easy-emoji'
 
+import { ChatAlt2Icon, XIcon, ChevronRightIcon } from "@heroicons/react/solid"
 
 
 const ChatBot = ({setDialogOpen}) => {

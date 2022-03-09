@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Element } from "react-scroll"
 
+import { Element } from "react-scroll"
 import emoji from 'react-easy-emoji'
-import { CSS3Icon, HTML5Icon, SassIcon, JSIcon, ReactIcon, NextJSIcon, MongoDBIcon, NodeJSIcon, GitIcon, PhotoshopIcon, IllustratorIcon, FigmaIcon } from "../components/icons";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween } from "react-gsap";
 
+import { CSS3Icon, HTML5Icon, SassIcon, JSIcon, ReactIcon, NextJSIcon, MongoDBIcon, NodeJSIcon, GitIcon, PhotoshopIcon, IllustratorIcon, FigmaIcon } from "../components/icons";
 
 const About = () => {
 

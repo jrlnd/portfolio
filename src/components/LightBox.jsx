@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon, XIcon } from "@heroicons/react/solid"
-import { set } from "react-hook-form";
-
 
 const LightBox = ({ images, isLightBoxOpen, setIsLightBoxOpen }) => {
 

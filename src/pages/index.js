@@ -1,11 +1,10 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { animateScroll } from "react-scroll";
+import { GraphQLClient, gql } from 'graphql-request'
 
 import { About, Contact, Footer, Header, DevPortfolio, TopNav, DesignPortfolio } from "../layouts";
 import { ChatBot, ContactDialog, LightBox } from "../components";
-
-import { GraphQLClient, gql } from 'graphql-request'
 
 export default function Home({ devProjectData, designProjectData }) {
 
@@ -41,7 +40,7 @@ export default function Home({ devProjectData, designProjectData }) {
     <>
       <Head>
         <title>JRLND - Portfolio</title>
-        <meta name="description" content="My personal frontend developer portfolio"/>
+        <meta name="description" content="My personal full-stack developer portfolio"/>
       </Head>
 
       <TopNav />

@@ -1,5 +1,5 @@
-import { AtSymbolIcon } from "@heroicons/react/solid";
 import { Element } from "react-scroll";
+import { AtSymbolIcon } from "@heroicons/react/solid";
 import { GithubIcon, LinkedInIcon, CodePenIcon } from "../components/icons";
 
 const Footer = () => {

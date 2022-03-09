@@ -1,7 +1,7 @@
 import { Element } from "react-scroll"
-import { ChatIcon, MailIcon } from "@heroicons/react/solid"
 import { Controller, Scene } from "react-scrollmagic"
 import { Tween } from "react-gsap"
+import { ChatIcon, MailIcon } from "@heroicons/react/solid"
 
 const Contact = ({ setDialogOpen }) => {
 
