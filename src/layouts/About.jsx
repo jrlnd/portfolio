@@ -97,7 +97,6 @@ const About = () => {
                   <Scene duration={300} triggerElement="#about-content" triggerHook={0.95}>
                     {(progress) => (
                       <Tween from={{ opacity: 0, x: '5%' }} to={{ opacity: 1, x: 0 }} stagger={0.35} totalProgress={progress} ease="back.out(1.7)" paused>
-                        <p>Hello, again! My full name is Rolando JR Gaoat, but you can call me JR <span className="inline-block">{svgEmoji("😎")}</span>.</p>
                         <p>
                           After graduating, I moved to Shanghai, China to teach high-school level Computer Science and Mathematics. I taught students basic programming skills using Python 
                           and also led various middle school STEM-related co-curricular activities, such as the <span className="italic">FIRST</span>&reg; LEGO&reg; League where students compete to build a robot and develop programs for it using Scratch.

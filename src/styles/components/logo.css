@@ -8,8 +8,6 @@
   height: auto;
   position: fixed;
   top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.0);
-  opacity: 0;
   animation: scaleAndFadeIn 1000ms linear forwards, position 1250ms ease-in-out forwards 3500ms;
 }
 
@@ -24,21 +22,41 @@
 }
 
 #mask-j {
+  stroke-dashoffset: 4144;
+  stroke-dasharray: 4144;
+}
+
+#animate-mask-j {
   stroke-dasharray: 4144;
   animation: draw-j 2.25s ease-in-out forwards 250ms;
 }
 
 #mask-r-t {
+  stroke-dashoffset: 3224;
+  stroke-dasharray: 3224;
+}
+
+#animate-mask-r-t {
   stroke-dasharray: 3224;
   animation: draw-r-t 2.25s ease-in-out forwards 1000ms;
 }
 
 #mask-r-b1 {
+  stroke-dashoffset: 701;
+  stroke-dasharray: 701;
+}
+
+#animate-mask-r-b1 {
   stroke-dasharray: 701;
   animation: draw-r-b1 1.5s ease-in-out forwards 1750ms;
 }
 
 #mask-r-b2 {
+  stroke-dashoffset: 742;
+  stroke-dasharray: 742;
+}
+
+#animate-mask-r-b2 {
   stroke-dasharray: 742;
   animation: draw-r-b2 1.5s ease-in-out forwards 1750ms;
 }

@@ -158,8 +158,8 @@ const ChatBot = ({setDialogOpen}) => {
   const handleEmail = () => {
     setChatQuery(emailMessages)
     setFurtherOptionsAvail(false);
-    const newTab = window.open('')
-    newTab.location.href = 'mailto:rjgaoat@gmail.com'
+    const newTab = window.open('mailto:rjgaoat@gmail.com')
+    //newTab.location.href = 'mailto:rjgaoat@gmail.com'
   }
 
   const handleMessage = () => {

@@ -52,7 +52,9 @@ const TopNav = () => {
 
   return (
     <>
-      <Logo />
+      <button className="hover:cursor-pointer" onClick={animateScroll.scrollToTop}>
+        <Logo className="z-50" />
+      </button>
       <Tween from={{ opacity: 0, y: '-100%' }} to={{ opacity: 1, y: '0%' }} duration={1} delay={4}>
         <div id="header-bar" className="fixed bg-theme-gray-900 bg-opacity-75 backdrop-blur-sm  w-full h-16 flex items-center justify-end pl-20 pr-4 text-theme-white-100 z-40 top-0 transition-[top] duration-500">
           <MenuIcon className="z-50 md:hidden hover:cursor-pointer" clicked={clicked} setClicked={setClicked} /> 
