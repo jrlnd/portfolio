@@ -142,7 +142,8 @@ export const getStaticProps = async () => {
     props: {
       devProjectData: devProjectsData.portfolioProjectsCollection.items,
       designProjectData: designProjectsData.portfolioDesignProjectCollection.items
-    }
+    },
+    revalidate: 60 * 30
   }
 
 }

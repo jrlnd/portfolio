@@ -67,10 +67,12 @@ const TopNav = () => {
                   </TopNavLink>                
                 </li>
               ))}
-              <li className="group flex items-center space-x-1.5 text-xl md:text-base border-2 border-theme-white-100 md:border-theme-red-400 rounded-full py-3 px-6 md:px-4 md:py-1.5 mt-4 md:mt-0 md:text-theme-red-400 transition-colors duration-300 hover:cursor-pointer hover:bg-theme-white-100 hover:text-theme-red-600 md:hover:bg-theme-red-400 md:hover:text-theme-white-100">
-                <DocumentTextIcon className={`${classes.navItemsIcon} md:fill-theme-red-400 group-hover:fill-theme-red-600 md:group-hover:fill-theme-white-100`}/>
-                <a href="/files/resume_cv.pdf" target="_blank" rel="noreferrer noopener">Resume</a>
-              </li>
+              <a href="/files/resume_cv.pdf" target="_blank" rel="noreferrer noopener">
+                <li className="group flex items-center space-x-1.5 text-xl md:text-base border-2 border-theme-white-100 md:border-theme-red-400 rounded-full py-3 px-6 md:px-4 md:py-1.5 mt-4 md:mt-0 md:text-theme-red-400 transition-colors duration-300 hover:cursor-pointer hover:bg-theme-white-100 hover:text-theme-red-600 md:hover:bg-theme-red-400 md:hover:text-theme-white-100">
+                  <DocumentTextIcon className={`${classes.navItemsIcon} md:fill-theme-red-400 group-hover:fill-theme-red-600 md:group-hover:fill-theme-white-100`}/>
+                  <span>Resume</span>
+                </li>
+              </a>
             </ul>
           </nav>
           </Tween>

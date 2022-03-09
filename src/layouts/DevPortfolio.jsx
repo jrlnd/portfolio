@@ -65,9 +65,9 @@ const Portfolio = ({ projectData, setImages, setIsLightBoxOpen  }) => {
                           <a href={project.githubUrl} target="_blank" rel="noreferrer noopener"><GithubIcon className="w-5 fill-theme-gray-500 transition-colors duration-300 hover:fill-theme-gray-900" /></a>
                         </div>
                       </div>
-                      <div className="w-full aspect-video overflow-hidden bg-theme-gray-900/50">
+                      <div className="w-full aspect-video overflow-hidden bg-theme-gray-900">
                         <button onClick={() => openLightBox(project.screenshotsCollection.items)}>
-                          <img key={i} src={project.screenshotsCollection.items[0]?.url || ""} className="w-full grayscale transition duration-300 opacity-50 hover:opacity-100 hover:grayscale-0" alt={project.screenshotsCollection.items[0]?.name || ""} />
+                          <img key={i} src={project.screenshotsCollection.items[0]?.url || ""} className="w-full transition duration-300 hover:opacity-25" alt={project.screenshotsCollection.items[0]?.name || ""} />
                         </button>
                       </div>
                       
