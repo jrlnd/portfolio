@@ -39,7 +39,7 @@ export default function Home({ devProjectData, designProjectData }) {
   return (
     <>
       <Head>
-        <title>JRLND - Portfolio</title>
+        <title>JRLND Portfolio</title>
         <meta name="description" content="My personal full-stack developer portfolio"/>
       </Head>
 

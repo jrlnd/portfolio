@@ -1,16 +1,25 @@
-import { ChevronRightIcon } from '@heroicons/react/solid'
-import { Player, Controls } from '@lottiefiles/react-lottie-player'
+
+import Head from 'next/head'
 import Link from 'next/link'
+
+import { ChevronRightIcon } from '@heroicons/react/solid'
+import { Player } from '@lottiefiles/react-lottie-player'
+
 import { Logo } from '../components'
 
 const Custom404 = () => {
-  return (
+  return (<>
+    <Head>
+      <title>(404) JRLND Portfolio</title>
+      <meta name="description" content="My personal full-stack developer portfolio"/>
+    </Head>
+
     <div className="w-full h-full min-h-screen flex items-center justify-center flex-col space-y-4 text-theme-white-100">
       <Link href="/">
         <a><Logo animate={false} className="w-24 hover:cursor-pointer"/></a>
       </Link>
       
-      <h1 className="font-display text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-theme-orange-500 to-theme-red-600 text-center">Uh oh, this page does not exists</h1>
+      <h1 className="font-display text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-theme-orange-500 to-theme-red-600 text-center mb-2">This page cannot be found</h1>
 
       <Player
         autoplay
@@ -26,7 +35,7 @@ const Custom404 = () => {
       </Link>
 
     </div>
-  )
+  </>)
   
 }
 
