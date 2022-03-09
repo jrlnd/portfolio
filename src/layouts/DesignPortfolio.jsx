@@ -27,7 +27,7 @@ const DesignPortfolio = ({ projectData, setImages, setIsLightBoxOpen  }) => {
           )}
         </Scene>
 
-        <div id="design-projects-content" className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8 text-theme-gray-900">
+        <div id="design-projects-content" className="w-full grid grid-cols-3 gap-4 md:gap-8 text-theme-gray-900">
         <Scene duration={500} triggerElement="#design-projects-content" triggerHook={0.8}>
           {(progress) => (
           <Tween from={{ autoAlpha: 0, y: '-15%' }} to={{ autoAlpha: 1, y: 0 }} stagger={0.4} totalProgress={progress} ease="back.out(1.7)" paused>
