@@ -32,13 +32,15 @@ const DesignPortfolio = ({ projectData, setImages, setIsLightBoxOpen  }) => {
           {(progress) => (
           <Tween from={{ autoAlpha: 0, transform: 'scale(0.8)' }} to={{ autoAlpha: 1, transform: 'scale(1)' }} stagger={0.4} totalProgress={progress} ease="back.out(1.7)" paused>
           {projectData.map((project, i) => (
-            <button key={i} className="group relative bg-gray-900 w-full rounded-lg aspect-square overflow-hidden" onClick={() => openLightBox(project.screenshotsCollection.items)}>
-              <img src={project.screenshotsCollection.items[0].url} alt={project.title} className="h-full object-cover" />
-              <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-theme-white-100 p-4 md:p-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <h5 className="absolute top-4 text-sm uppercase tracking-[0.5em]">{project.type}</h5>
-                <h3 className="font-display text-2xl md:text-3xl text-center">{project.title}</h3>
-              </div>
-            </button>
+            <div key={i} className="group relative bg-gray-900 w-full rounded-lg aspect-square overflow-hidden">
+              <button key={i} onClick={() => openLightBox(project.screenshotsCollection.items)}>
+                <img src={project.screenshotsCollection.items[0].url} alt={project.title} className="h-full object-cover" />
+                <div className="absolute inset-0 bg-gray-900/90 flex items-center justify-center text-theme-white-100 p-4 md:p-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h5 className="absolute top-4 text-sm uppercase tracking-[0.5em]">{project.type}</h5>
+                  <h3 className="font-display text-2xl md:text-3xl text-center">{project.title}</h3>
+                </div>
+              </button>
+            </div>
           ))}
           </Tween>
           )}
