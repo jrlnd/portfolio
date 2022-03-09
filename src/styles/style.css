@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "./base/style.css";
+@import "./base/fonts.css";
+
+@import "tailwindcss/components";
+@import "./components/logo.css";
+@import "./components/menu-icon.css";
+@import "./components/portrait.css";
+@import "./components/chat-bot.css";
+@import "./layouts/top-nav.css";
+@import "./layouts/header.css";
+@import "./layouts/about.css";
+
+@import "tailwindcss/utilities";
+@import "./utilities/animations.css";

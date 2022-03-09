@@ -1,0 +1,15 @@
+/* #portrait-bg {
+  transform: translateY(-10%);
+  opacity: 0;
+  animation: translateYFadeIn 1000ms ease-in-out forwards 4750ms;
+}
+
+#portrait-body {
+  transform: translateY(10%);
+  opacity: 0;
+  animation: translateYFadeIn 1000ms ease-in-out forwards 5000ms;
+} */
+
+.sweater {
+  fill: #232526;
+}

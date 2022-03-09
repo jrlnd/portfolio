@@ -1,0 +1,14 @@
+#chat-icon {
+  opacity: 0;
+  transform: translateY(100%);
+  animation: translateYFadeIn 500ms ease-in-out forwards 6250ms;
+}
+
+.chat-visible {
+
+  .message-appear {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: translateYFadeIn 400ms ease-in-out forwards;
+  }
+}

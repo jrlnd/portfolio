@@ -1,0 +1,82 @@
+/* #greeting, #intro-title, #intro-subtitle, #intro-desc, #intro-cta {
+  transform: translateX(-25%);
+  opacity: 0;
+}
+
+#greeting {
+  animation: translateXFadeIn10\% 1000ms ease-in-out forwards 5250ms;
+} 
+
+#intro-title {
+  animation: translateXFadeIn 1000ms ease-in-out forwards 5250ms;
+}
+
+#intro-subtitle {
+  animation: translateXFadeIn 1000ms ease-in-out forwards 5500ms;
+}
+
+#caveat {
+  opacity: 0;
+  animation: fadeIn20\% 500ms ease-in-out forwards 6500ms;
+}
+
+#intro-desc {
+  animation: translateXFadeIn 1000ms ease-in-out forwards 5750ms;
+}
+
+#intro-cta {
+  animation: translateXFadeIn 1000ms ease-in-out forwards 6000ms;
+} */
+
+
+@keyframes flexBox {
+  to { 
+    flex: 1 1 0%;
+    padding: 0.5rem 1rem;
+ }
+}
+
+#typewriter {
+  background: #232526;
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 100%;
+  border-left: 2px solid #fff;
+  animation: typewriter 1.25s steps(13) forwards 8500ms;
+}
+
+@keyframes typewriter {
+  80% { width: 0%; border-left-color: #fff;}
+  100% { width: 0%; border-left-color: transparent; }
+}
+
+.title-4-text {
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.text-stroke {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.8px;
+  stroke-dashoffset: -900;
+  stroke-dasharray: 900;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  animation: dash 8s ease-in-out forwards 9000ms;
+}
+
+@keyframes dash {
+  0% { stroke-dashoffset: -900; }
+  25% { stroke-dashoffset: 0; }
+  75% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -900; }
+}
+
+#title-4-dre {
+  display: none;
+}
+
+@keyframes blinkTextCursor {
+  from{border-right-color: #232526;}
+  to{border-right-color: transparent;}
+}

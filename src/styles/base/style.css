@@ -1,0 +1,32 @@
+@layer base {
+  html, body {
+    min-height: 100vh;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  } 
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #da965e transparent;
+}
+
+/* width */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg, #c04955, #da965e);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: #c04955;
+}
+

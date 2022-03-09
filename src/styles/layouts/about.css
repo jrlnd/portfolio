@@ -1,0 +1,37 @@
+.portrait {
+  border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  animation: morph 9000ms linear infinite;
+  animation-play-state: paused;
+  transition: background-color 300ms ease-in-out;
+  
+  img {
+    mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.25);
+    transition: filter 300ms ease-in-out;
+  }
+
+  &:hover {
+    animation-play-state: running;
+    background-color: #fff;
+
+    img {
+      filter: grayscale(0) contrast(1);
+    }
+  }
+
+
+
+
+}
+
+@keyframes morph {
+  0%, 100% {
+  border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
