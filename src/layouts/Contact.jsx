@@ -24,63 +24,43 @@ const Contact = ({ setDialogOpen }) => {
         </svg>
       </div>
       <Element name="contact" className="relative flex flex-col items-center justify-center -mt-48 px-8 xl:px-0"> 
-  
+      <Controller>
         <div className="w-full max-w-screen-lg text-center p-4 md:p-8 bg-theme-white-100 text-theme-gray-900 rounded-lg">
           <div id="contact-title" className="font-display text-3xl uppercase sm:text-4xl lg:text-5xl mb-1 md:mb-4">
-            <Controller>
-              <Scene duration={300} triggerElement="#contact-title" triggerHook={0.975}>
-                {(progress, event) => (
-                  <Tween from={{ opacity: 0, transform: 'translateY(-75%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} totalProgress={progress} paused>
-                    <h1 className="font-display text-3xl uppercase sm:text-4xl lg:text-5xl mb-1 md:mb-4">Stay in Contact</h1>
-                  </Tween>
-                )}
-              </Scene>
-            </Controller>
+            <Scene duration={300} triggerElement="#contact-title" triggerHook={0.975}>
+              {(progress, event) => (
+                <Tween from={{ opacity: 0, transform: 'translateY(-75%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} totalProgress={progress} paused>
+                  <h1 className="font-display text-3xl uppercase sm:text-4xl lg:text-5xl mb-1 md:mb-4">Stay in Contact</h1>
+                </Tween>
+              )}
+            </Scene>
           </div>
           
             
           <div id="contact-content" className="font-light text-lg md:text-xl lg:text-2xl space-y-1">
-            <Controller>
-              <Scene duration={300} triggerElement="#contact-content" triggerHook={0.975}>
-                {(progress, event) => (
-                  <Tween from={{ opacity: 0, transform: 'translateY(-75%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} stagger={0.35} totalProgress={progress} paused>
-                    <p className="font-semibold">My inbox is always open to any inquries, questions, or comments.</p>
-                    <p>Interested in working together? Have a project in mind and need some help?</p> 
-                    <p>Let&rsquo;s have a chat. Give me the details and I&rsquo;ll try my best to get back to you.</p>
-                    <div id="contact-buttons" className="flex flex-col md:flex-row items-center justify-center !mt-4 !md:mt-8 space-y-2 md:space-y-0 md:space-x-4 font-bold text-lg md:text-xl">
-                      <a target="_blank" rel="noreferrer noopener" href="mailto:rjgaoat@gmail.com" className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-orange-500 rounded-full transition-colors duration-300 hover:bg-theme-orange-500 hover:text-theme-white-100 text-theme-orange-500">
-                        <span>Send an e-mail</span> <MailIcon className="w-6 md:w-7" />
-                      </a>
-                      <button onClick={() => setDialogOpen(true)} className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-red-600 rounded-full font-bold transition-colors duration-300 hover:bg-theme-red-600 hover:text-theme-white-100 text-theme-red-600">
-                        <span>Leave a message</span> <ChatIcon className="w-6 md:w-7" />
-                      </button>
-                    </div>
-                  </Tween>
-                )}
-              </Scene>
-            </Controller>
+
+            <Scene duration={300} triggerElement="#contact-content" triggerHook={0.975}>
+              {(progress, event) => (
+                <Tween from={{ opacity: 0, transform: 'translateY(-75%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} stagger={0.35} totalProgress={progress} paused>
+                  <p className="font-semibold">My inbox is always open to any inquries, questions, or comments.</p>
+                  <p>Interested in working together? Have a project in mind and need some help?</p> 
+                  <p>Let&rsquo;s have a chat. Give me the details and I&rsquo;ll try my best to get back to you.</p>
+                  <div id="contact-buttons" className="flex flex-col md:flex-row items-center justify-center !mt-4 !md:mt-8 space-y-2 md:space-y-0 md:space-x-4 font-bold text-lg md:text-xl">
+                    <a target="_blank" rel="noreferrer noopener" href="mailto:rjgaoat@gmail.com" className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-orange-500 rounded-full transition-colors duration-300 hover:bg-theme-orange-500 hover:text-theme-white-100 text-theme-orange-500">
+                      <span>Send an e-mail</span> <MailIcon className="w-6 md:w-7" />
+                    </a>
+                    <button onClick={() => setDialogOpen(true)} className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-red-600 rounded-full font-bold transition-colors duration-300 hover:bg-theme-red-600 hover:text-theme-white-100 text-theme-red-600">
+                      <span>Leave a message</span> <ChatIcon className="w-6 md:w-7" />
+                    </button>
+                  </div>
+                </Tween>
+              )}
+            </Scene>
+
           </div>
 
-          {/* <div id="contact-buttons" className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-            <Controller>
-              <Scene duration={300} triggerElement="#contact-content" offset={100} triggerHook={0.95}>
-                {(progress, event) => (
-                  <>
-                    <Tween from={{ opacity: 0, transform: 'translateY(-100%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} ease="sine.out" totalProgress={progress} paused>
-                      <a target="_blank" rel="noreferrer noopener" href="mailto:rjgaoat@gmail.com" className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-orange-500 rounded-full font-bold md:text-lg lg:text-xl xl:text-2xl transition-colors duration-300 hover:bg-theme-orange-500 hover:text-theme-white-100 text-theme-orange-500">
-                        <span>Send an e-mail</span> <MailIcon className="w-6 md:w-7" />
-                      </a>
-                      <button onClick={() => setDialogOpen(true)} className="flex items-center py-2 md:py-3 px-4 md:px-6 space-x-2 border-2 border-theme-red-600 rounded-full font-bold md:text-lg lg:text-xl xl:text-2xl transition-colors duration-300 hover:bg-theme-red-600 hover:text-theme-white-100 text-theme-red-600">
-                        <span>Send a message</span> <ChatIcon className="w-6 md:w-7" />
-                      </button>
-                    </Tween>
-                  </>
-                  )}
-                </Scene>
-              </Controller>
-          </div> */}
         </div>
-
+      </Controller>
       </Element>
     </>
     

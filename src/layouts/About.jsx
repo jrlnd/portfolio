@@ -45,11 +45,11 @@ const About = () => {
         </svg>
       </div>
       <Element name="about" className="min-h-screen flex flex-col items-center justify-center py-20 space-y-8 md:space-y-20 bg-theme-orange-500 text-theme-gray-900 overflow-hidden">
-      
+      <Controller>
         <div className="w-full max-w-screen-xl flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-12 px-8 xl:px-0">
 
           <div id="about-portrait" className="w-64 md:80 lg:w-96 aspect-square flex-none bg-theme-orange-500">
-            <Controller>
+            
               <Scene duration={400} triggerElement="#about-portrait" triggerHook={0.95}>
                 {(progress) => (
                   <Tween from={{ opacity: 0, x: '-25%' }} to={{ opacity: 1, x: 0 }} totalProgress={progress} ease="back.out(1.7)" paused>
@@ -59,57 +59,51 @@ const About = () => {
                   </Tween>
                 )}
               </Scene>
-            </Controller>
+ 
           </div>
             
           <div id="about-container">
 
             <div id="about-title" className="text-center lg:text-left">
-              <Controller>
-                <Scene duration={400} triggerElement="#about-title" triggerHook={1}>
-                  {(progress) => (
-                    <Tween from={{ opacity: 0, x: '20%' }} to={{ opacity: 1, x: 0 }} totalProgress={progress} ease="back.out(1.7)" paused>
-                      <h1 className="font-display uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-1 md:mb-4">About Me</h1> 
-                    </Tween>
-                  )}
-                </Scene>
-              </Controller>
+              <Scene duration={400} triggerElement="#about-title" triggerHook={1}>
+                {(progress) => (
+                  <Tween from={{ opacity: 0, x: '20%' }} to={{ opacity: 1, x: 0 }} totalProgress={progress} ease="back.out(1.7)" paused>
+                    <h1 className="font-display uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-1 md:mb-4">About Me</h1> 
+                  </Tween>
+                )}
+              </Scene>
             </div>
 
             <div id="about-subtitle" className="font-serif text-base md:text-lg">
-              <Controller>
-                <Scene duration={300} triggerElement="#about-subtitle" triggerHook={0.95}>
-                  {(progress) => (
-                    <Tween from={{ opacity: 0, x: '5%' }} to={{ opacity: 1, x: 0 }} stagger={0.25} totalProgress={progress} ease="back.out(1.7)" paused>
-                      <p>Hello, again! My full name is Rolando JR Gaoat, but you can call me JR <span className="inline-block">{svgEmoji("😎")}</span>.</p>
-                      <p className="mt-2 mb-6 font-serif md:text-lg">
-                        I <span className="text-base inline-block">{svgEmoji("❤")}</span> creating beautiful, clean, and exceptional user interfaces and digital experiences. 
-                        As a <span className="font-mono text-lg md:text-xl">&lt;developer/&gt;</span><span className="text-base inline-block">{svgEmoji("👨‍💻")}</span> and <span className="font-serif italic">designer</span><span className="text-base inline-block">{svgEmoji("👨‍🎨")}</span>, I can integrate and bring you the best of both worlds <span className="text-base inline-block">{svgEmoji("🌎")}</span>.
-                      </p>
-                    </Tween>
-                  )}
-                </Scene>
-              </Controller>
+              <Scene duration={300} triggerElement="#about-subtitle" triggerHook={0.95}>
+                {(progress) => (
+                  <Tween from={{ opacity: 0, x: '5%' }} to={{ opacity: 1, x: 0 }} stagger={0.25} totalProgress={progress} ease="back.out(1.7)" paused>
+                    <p>Hello, again! My full name is Rolando JR Gaoat, but you can call me JR <span className="inline-block">{svgEmoji("😎")}</span>.</p>
+                    <p className="mt-2 mb-6 font-serif md:text-lg">
+                      I <span className="text-base inline-block">{svgEmoji("❤")}</span> creating beautiful, clean, and exceptional user interfaces and digital experiences. 
+                      As a <span className="font-mono text-lg md:text-xl">&lt;developer/&gt;</span><span className="text-base inline-block">{svgEmoji("👨‍💻")}</span> and <span className="font-serif italic">designer</span><span className="text-base inline-block">{svgEmoji("👨‍🎨")}</span>, I can integrate and bring you the best of both worlds <span className="text-base inline-block">{svgEmoji("🌎")}</span>.
+                    </p>
+                  </Tween>
+                )}
+              </Scene>
             </div>
 
             <div id="about-content" className="text-sm md:text-base space-y-2">
-              <Controller>
-                  <Scene duration={300} triggerElement="#about-content" triggerHook={0.95}>
-                    {(progress) => (
-                      <Tween from={{ opacity: 0, x: '5%' }} to={{ opacity: 1, x: 0 }} stagger={0.35} totalProgress={progress} ease="back.out(1.7)" paused>
-                        <p>
-                          After graduating, I moved to Shanghai, China to teach high-school level Computer Science and Mathematics. I taught students basic programming skills using Python 
-                          and also led various middle school STEM-related co-curricular activities, such as the <span className="italic">FIRST</span>&reg; LEGO&reg; League where students compete to build a robot and develop programs for it using Scratch.
-                        </p>
-                        <p>
-                          Currently, I am back at home in Toronto, Canada due to the on-going pandemic. Being back home has reignited my passion for building and creating products for the web. 
-                          With the sudden shift towards reliance on more online technologies, I hope to refine my skills so that I can create a more accessible, aesthetically-pleasing 
-                          and intuitive online experience for everyone.
-                        </p>
-                      </Tween>
-                    )}
-                  </Scene>
-                </Controller>
+              <Scene duration={300} triggerElement="#about-content" triggerHook={0.95}>
+                {(progress) => (
+                  <Tween from={{ opacity: 0, x: '5%' }} to={{ opacity: 1, x: 0 }} stagger={0.35} totalProgress={progress} ease="back.out(1.7)" paused>
+                    <p>
+                      After graduating, I moved to Shanghai, China to teach high-school level Computer Science and Mathematics. I taught students basic programming skills using Python 
+                      and also led various middle school STEM-related co-curricular activities, such as the <span className="italic">FIRST</span>&reg; LEGO&reg; League where students compete to build a robot and develop programs for it using Scratch.
+                    </p>
+                    <p>
+                      Currently, I am back at home in Toronto, Canada due to the on-going pandemic. Being back home has reignited my passion for building and creating products for the web. 
+                      With the sudden shift towards reliance on more online technologies, I hope to refine my skills so that I can create a more accessible, aesthetically-pleasing 
+                      and intuitive online experience for everyone.
+                    </p>
+                  </Tween>
+                )}
+              </Scene>
             </div>
               
           </div>
@@ -119,37 +113,37 @@ const About = () => {
         <div className="w-full max-w-screen-xl flex flex-col items-center">
 
           <div id="toolkit-title" className="text-center md:text-left">
-            <Controller>
-              <Scene duration={300} triggerElement="#toolkit-title" triggerHook={0.95}>
-                {(progress) => (
-                  <Tween from={{ opacity: 0, y: '-100%' }} to={{ opacity: 1, y: 0 }} totalProgress={progress} ease="back.out(1.7)" paused>
-                    <h1 className="font-bold text-2xl lg:text-3xl mb-1 md:mb-4">My most recent toolkit</h1>
-                  </Tween>
-                )}
-              </Scene>
-            </Controller>
+
+            <Scene duration={300} triggerElement="#toolkit-title" triggerHook={0.95}>
+              {(progress) => (
+                <Tween from={{ opacity: 0, y: '-100%' }} to={{ opacity: 1, y: 0 }} totalProgress={progress} ease="back.out(1.7)" paused>
+                  <h1 className="font-bold text-2xl lg:text-3xl mb-1 md:mb-4">My most recent toolkit</h1>
+                </Tween>
+              )}
+            </Scene>
+
           </div>
 
           <div id="toolkit-logos" className="w-full grid grid-cols-3 sm:grid-cols-4 gap-y-4 md:gap-y-8 md:grid-cols-6">
-            <Controller>
-              <Scene duration={350} triggerElement="#toolkit-logos" triggerHook={0.925}>
-                {(progress) => (
-                  <Tween from={{ opacity: 0, y: '-35%' }} to={{ opacity: 1, y: 0 }} stagger={0.1} totalProgress={progress} ease="back.out(1.7)" paused>
-                    {tools.map((tool, i) => (
-                      <div key={i} className="flex flex-col items-center justify-center">
-                          <div className="w-16: sm:w-20 h-16 sm:h-20 flex items-center justify-center">
-                            {tool.icon}
-                          </div>
-                          <span className="text-sm sm:text-base font-mono tracking-tight">{tool.name}</span>  
-                      </div>
-                    ))}
-                  </Tween>
-                )}
-              </Scene>
-            </Controller>
+
+            <Scene duration={350} triggerElement="#toolkit-logos" triggerHook={0.925}>
+              {(progress) => (
+                <Tween from={{ opacity: 0, y: '-35%' }} to={{ opacity: 1, y: 0 }} stagger={0.1} totalProgress={progress} ease="back.out(1.7)" paused>
+                  {tools.map((tool, i) => (
+                    <div key={i} className="flex flex-col items-center justify-center">
+                        <div className="w-16: sm:w-20 h-16 sm:h-20 flex items-center justify-center">
+                          {tool.icon}
+                        </div>
+                        <span className="text-sm sm:text-base font-mono tracking-tight">{tool.name}</span>  
+                    </div>
+                  ))}
+                </Tween>
+              )}
+            </Scene>
+
           </div>
         </div>
-
+      </Controller>
       </Element>
     </>
   );
