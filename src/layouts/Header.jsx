@@ -30,7 +30,7 @@ const Header = ({setDialogOpen}) => {
           <Controller>
             <Scene triggerElement="#header-left" duration="50%" triggerHook="0.2">
               {(progress) => (
-                <Tween to={{ autoAlpha: 0, transform: "translateX(-15%)" }} stagger={0.25} ease="sine.out" totalProgress={progress} paused>
+                <Tween to={{ autoAlpha: 0, transform: "translateX(-15%)" }} stagger={0.25} ease="back.out(1.7)" totalProgress={progress} paused>
                   
                   <div id="greeting" className="-mb-6 mt-4 md:mt-0 md:-mb-9 lg:-mb-14 font-cursive text-7xl sm:text-8xl lg:text-[10rem] xl:text-[11rem] text-theme-white-100/10"> Hello </div>
                   <h1 id="intro-title" className="md:text-3xl lg:text-5xl mb-1 md:mb-4 font-display font-semibold text-xl">My name is JR Rolando</h1>

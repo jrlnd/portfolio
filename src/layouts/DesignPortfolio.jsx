@@ -16,9 +16,9 @@ const DesignPortfolio = ({ projectData, setImages, setIsLightBoxOpen  }) => {
     <div className="w-full max-w-screen-xl flex flex-col items-center px-8 2xl:px-0">
       <Controller>
         
-        <Scene triggerElement="#des-portfolio-title" triggerHook={0.95} duration={400}>
+        <Scene triggerElement="#des-portfolio-title" triggerHook={0.90} duration={400}>
           {(progress) => (
-            <Tween from={{ autoAlpha: 0, y: '-50%' }} ease="back.out(1.7)" stagger={0.9} totalProgress={progress} paused>
+            <Tween from={{ autoAlpha: 0, y: '-50%' }} ease="back.out(1.7)" stagger={0.75} totalProgress={progress} paused>
               <h1 id="des-portfolio-title" className="font-display uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-1 md:mb-4">Designs</h1>
               <h2 className="font-light text-lg md:text-xl lg:text-2xl space-y-1 mb-2 md:mb-8 text-center">
                 Besides websites, I also enjoy designing logos, user interfaces, mobile apps, and other marketing materials.
