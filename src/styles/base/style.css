@@ -2,6 +2,7 @@
   html, body {
     min-height: 100vh;
     font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-text-size-adjust: none;
   } 
 }
 
