@@ -105,7 +105,7 @@
     transform: translate(-50%, -50%) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
   to {
-    transform: translate(calc(-50vw + 0.65rem), calc(-50vh + 0.5rem)) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform: translate(calc(-50vw + 25%), calc(-50vh + 20%)) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     max-width: 3.25rem;
   }
 }
