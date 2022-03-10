@@ -30,3 +30,7 @@
   background: #c04955;
 }
 
+::selection {
+  background: #d85c6c; 
+}
+

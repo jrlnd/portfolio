@@ -102,7 +102,7 @@ const About = () => {
                           and also led various middle school STEM-related co-curricular activities, such as the <span className="italic">FIRST</span>&reg; LEGO&reg; League where students compete to build a robot and develop programs for it using Scratch.
                         </p>
                         <p>
-                          Currently, I am back at home in Toronto, Canada due to the on-going pandemic. Being back home has reignited my passion for building and creating things for the web. 
+                          Currently, I am back at home in Toronto, Canada due to the on-going pandemic. Being back home has reignited my passion for building and creating products for the web. 
                           With the sudden shift towards reliance on more online technologies, I hope to refine my skills so that I can create a more accessible, aesthetically-pleasing 
                           and intuitive online experience for everyone.
                         </p>
