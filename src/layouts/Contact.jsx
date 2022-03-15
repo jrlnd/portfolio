@@ -42,7 +42,7 @@ const Contact = ({ setDialogOpen }) => {
             <Scene duration={300} triggerElement="#contact-content" triggerHook={0.975}>
               {(progress, event) => (
                 <Tween from={{ opacity: 0, transform: 'translateY(-75%)' }} to={{ opacity: 1, transform: 'translateY(0)' }} stagger={0.35} totalProgress={progress} paused>
-                  <p className="font-semibold">My inbox is always open to any inquries, questions, or comments.</p>
+                  <p className="font-semibold">My inbox is always open to any inquiries, questions, or comments.</p>
                   <p>Interested in working together? Have a project in mind and need some help?</p> 
                   <p>Let&rsquo;s have a chat. Give me the details and I&rsquo;ll try my best to get back to you.</p>
                   <div id="contact-buttons" className="flex flex-col md:flex-row items-center justify-center !mt-4 !md:mt-8 space-y-2 md:space-y-0 md:space-x-4 font-bold text-lg md:text-xl">
