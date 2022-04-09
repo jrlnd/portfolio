@@ -4,17 +4,19 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="description" content="Rolando JR Gaoat's personal frontend developer portfolio"/>
+
         <meta name="keywords" content="portfolio, resume, frontend, web, full-stack, developer, project, work, experience, freelance, freelancing, contract"/>
         <meta name="robots" content="index, follow"/>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="language" content="English"/>
         <meta name="author" content="Rolando JR Gaoat"/>
         
-        <meta property="og:title" content="JRLND | Front-End Developer Portfolio" />
-        <meta property="og:image" content="http://jrlnd.dev/images/og-logo.png"/>
-        <meta property="og:description" content="Rolando JR Gaoat's personal frontend developer portfolio" />
-        <meta property="og:url" content="http://jrlnd.dev/" />
+        <meta name="title" property="og:title" content="JRLND | Front-End Developer Portfolio" />
+        <meta name="type" property="og:type" content="website" />
+        <meta name="image" property="og:image" content="https://jrlnd.dev/images/og-logo.png" />
+        <meta name="url" property="og:url" content="https//jrlnd.dev/" />
+        <meta name="description" property="og:description" content="Rolando JR Gaoat's personal frontend developer portfolio" />
+        
 
         <link rel="canonical" href="https://jrlnd.dev/" />
         <link rel="icon" href="/favicon.ico" />
