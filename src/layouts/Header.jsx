@@ -35,7 +35,7 @@ const Header = ({setDialogOpen}) => {
                   <div id="greeting" className="-mb-6 mt-4 md:mt-0 md:-mb-9 lg:-mb-14 font-cursive text-7xl sm:text-8xl lg:text-[10rem] xl:text-[11rem] text-theme-white-100/10"> Hello </div>
                   <h1 id="intro-title" className="md:text-3xl lg:text-5xl mb-1 md:mb-4 font-display font-semibold text-xl">My name is JR Rolando</h1>
                   <h2 id="intro-subtitle" className="text-md sm:text-lg md:text-2xl lg:text-4xl font-light mb-4 md:mb-8">
-                    I&rsquo;m a <span className="font-semibold">full stack developer</span> + <span className="relative font-serif italic">designer. <span id="caveat" className="absolute -top-2.5 -right-2.5 md:-top-3.5 md:-right-3.5 lg:-top-2.5 lg:-right-2.5 font-cursive2 font-normal text-sm md:text-xl rotate-6 text-theme-white-100/20">(occasionally)</span></span> 
+                    I&rsquo;m a <span className="font-semibold">front-end developer</span> + <span className="relative font-serif italic">designer. <span id="caveat" className="absolute -top-2.5 -right-2.5 md:-top-3.5 md:-right-3.5 lg:-top-2.5 lg:-right-2.5 font-cursive2 font-normal text-sm md:text-xl rotate-6 text-theme-white-100/20">(occasionally)</span></span> 
                   </h2>
                   <div className="flex flex-col items-center md:items-start space-y-2 md:space-y-4">
                     <h3 id="intro-notice" className="flex flex-col sm:flex-row items-center space-x-2 md:text-lg lg:text-xl">
