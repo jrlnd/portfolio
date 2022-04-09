@@ -17,7 +17,7 @@ export default function Document() {
         <meta name="url" property="og:url" content="https//jrlnd.dev/" />
         <meta name="description" property="og:description" content="Front-End Developer. Designer. Dreamer. Welcome to my Portfolio!" />
         
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="JRLND | Front-End Developer Portfolio" />
         <meta name="twitter:description" content="Front-End Developer. Designer. Dreamer. Welcome to my Portfolio!" />
         <meta name="twitter:image" content="https://jrlnd.dev/images/og-logo.png" />
