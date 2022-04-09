@@ -39,8 +39,8 @@ export default function Home({ devProjectData, designProjectData }) {
   return (
     <>
       <Head>
-        <title>JRLND Portfolio</title>
-        <meta name="description" content="My personal full-stack developer portfolio"/>
+        <title>JRLND &middot; Front-End Developer Portfolio</title>
+        <meta name="description" content="Rolando JR Gaoat's personal frontend developer portfolio"/>
       </Head>
 
       <TopNav />

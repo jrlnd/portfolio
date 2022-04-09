@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="title" content="JRLND | Front-End Developer Portfolio" />
         <meta name="description" content="Rolando JR Gaoat's personal frontend developer portfolio"/>
         <meta name="keywords" content="portfolio, resume, frontend, web, full-stack, developer, project, work, experience, freelance, freelancing, contract"/>
         <meta name="robots" content="index, follow"/>
