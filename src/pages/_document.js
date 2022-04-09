@@ -12,7 +12,7 @@ export default function Document() {
         <meta name="author" content="Rolando JR Gaoat"/>
         
         <meta property='og:title' content="JRLND | Front-End Developer Portfolio" />
-        <meta property='og:image' content="/images/og-logo.ng"/>
+        <meta property='og:image' content="https://jrlnd.dev/images/og-logo.png"/>
         <meta property='og:description' content="Rolando JR Gaoat's personal frontend developer portfolio" />
         <meta property='og:url' content="https://jrlnd.dev/" />
 
