@@ -11,7 +11,6 @@ const Custom404 = () => {
   return (<>
     <Head>
       <title>(404) JRLND &middot; Front-End Developer Portfolio</title>
-      <meta name="description" content="My personal full-stack developer portfolio"/>
     </Head>
 
     <div className="w-full h-full min-h-screen flex items-center justify-center flex-col space-y-4 text-theme-white-100">
