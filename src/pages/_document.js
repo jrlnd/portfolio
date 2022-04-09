@@ -15,8 +15,13 @@ export default function Document() {
         <meta name="type" property="og:type" content="website" />
         <meta name="image" property="og:image" content="https://jrlnd.dev/images/og-logo.png" />
         <meta name="url" property="og:url" content="https//jrlnd.dev/" />
-        <meta name="description" property="og:description" content="Rolando JR Gaoat's personal frontend developer portfolio" />
+        <meta name="description" property="og:description" content="Front-End Developer. Designer. Dreamer. Welcome to my Portfolio!" />
         
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="JRLND | Front-End Developer Portfolio" />
+        <meta name="twitter:description" content="Front-End Developer. Designer. Dreamer. Welcome to my Portfolio!" />
+        <meta name="twitter:image" content="https://jrlnd.dev/images/og-logo.png" />
+        <meta name="twitter:image:alt" content="JRLND | Front-End Developer Portfolio" />
 
         <link rel="canonical" href="https://jrlnd.dev/" />
         <link rel="icon" href="/favicon.ico" />
