@@ -10,7 +10,7 @@ import { Logo } from '../components'
 const Custom404 = () => {
   return (<>
     <Head>
-      <title>(404) JRLND Portfolio</title>
+      <title>(404) JRLND &middot; Front-End Developer Portfolio</title>
       <meta name="description" content="My personal full-stack developer portfolio"/>
     </Head>
 
