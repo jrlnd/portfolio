@@ -43,7 +43,7 @@ const Header = ({setDialogOpen}) => {
                         <span className="animate-ping [animation-duration:1500ms] absolute inline-flex"><ExclamationCircleIcon className="w-6 h-6 fill-theme-red-400" /></span>
                         <span className="relative inline-flex"><ExclamationCircleIcon className="w-6 h-6 fill-theme-red-400" /></span>
                       </span>
-                      <span>I&rsquo;m currently looking for work oppportunities</span>
+                      <span>I&rsquo;m currently looking for work opportunities</span>
                     </h3>
 
                     <button id="intro-cta" onClick={() => setDialogOpen(true)} className="flex items-center pl-6 p-3 border-2 border-theme-orange-500 bg-transparent rounded-full font-bold md:text-lg lg:text-xl transition-colors duration-300 hover:bg-theme-orange-500 hover:text-theme-white-100 text-theme-orange-500">
