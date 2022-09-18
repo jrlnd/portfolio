@@ -7,12 +7,12 @@ const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
@@ -54,5 +54,25 @@ const { title } = Astro.props
           Bitstream Vera Sans Mono, Courier New, monospace;
       }
     </style>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
+
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light"
+
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark"
+
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme")
+    </script>
   </body>
 </html>
