@@ -1,8 +1,0 @@
-.chat-visible {
-
-  .message-appear {
-    opacity: 0;
-    transform: translateY(100%);
-    animation: translateYFadeIn 400ms ease-in-out forwards;
-  }
-}

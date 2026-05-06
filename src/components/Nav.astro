@@ -1,0 +1,43 @@
+---
+import ThemeToggle from './ThemeToggle.tsx';
+
+const links = [
+  { href: '/', label: 'Work' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur-sm">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-base font-medium tracking-tight no-underline">
+      JR Gaoat
+    </a>
+
+    <div class="flex items-center gap-6">
+      <ul class="flex gap-6 text-sm">
+        {links.map((link) => {
+          const active =
+            link.href === '/' ? path === '/' : path.startsWith(link.href);
+          return (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  'no-underline transition',
+                  active ? 'text-fg' : 'text-muted hover:text-fg',
+                ]}
+                aria-current={active ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <ThemeToggle client:load />
+    </div>
+  </nav>
+</header>

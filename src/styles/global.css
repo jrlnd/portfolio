@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Tokens reference CSS vars below so utilities respond to theme switch */
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --bg: #fafaf7;
+  --fg: #111111;
+  --muted: #6b6b66;
+  --subtle: #f0eee7;
+  --border: #e8e6df;
+  --accent: #111111;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0e0e0c;
+  --fg: #f4f3ee;
+  --muted: #9a988f;
+  --subtle: #1a1a17;
+  --border: #2a2a26;
+  --accent: #f4f3ee;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  ::selection {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  a {
+    @apply underline-offset-4 decoration-1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

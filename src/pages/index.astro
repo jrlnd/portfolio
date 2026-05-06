@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects', ({ data }) => !data.draft))
+  .sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
+---
+
+<BaseLayout
+  title="JR Gaoat — Front-End Developer"
+  description="Front-end developer & designer building thoughtful, content-first interfaces."
+>
+  <section class="mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pt-32">
+    <p class="text-sm text-muted">Portfolio &middot; 2026</p>
+    <h1 class="mt-4 text-5xl font-medium tracking-tight sm:text-6xl md:text-7xl">
+      JR Gaoat
+    </h1>
+    <p class="mt-6 max-w-2xl text-xl text-muted sm:text-2xl">
+      Front-end developer & designer working at the seam where editorial design
+      meets product engineering.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-24">
+    <div class="mb-8 flex items-baseline justify-between border-b border-border pb-4">
+      <h2 class="text-sm uppercase tracking-widest text-muted">Selected work</h2>
+      <span class="text-sm tabular-nums text-muted">
+        {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+      </span>
+    </div>
+
+    {projects.length === 0 ? (
+      <p class="py-12 text-center text-muted">
+        No projects yet. Add an <code class="font-mono text-fg">.mdx</code> file
+        to <code class="font-mono text-fg">src/content/projects/</code>.
+      </p>
+    ) : (
+      <ul class="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
+        {projects.map((project) => (
+          <li>
+            <ProjectCard project={project} />
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

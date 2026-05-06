@@ -1,11 +1,23 @@
-# JRLND Portfolio
+# Portfolio v2
 
-[View website](https://jrlnd.dev/)
+Astro + React + TypeScript + Tailwind v4. Content via MDX content collections.
 
-An animated and interactive landing page for my personal portfolio. Learn more about myself, some of the projects I have worked on, and explore some designs I've made.
+## Develop
 
-# Tech Stack
-- Next.js
-- Contentful CMS
-- SendGrid API
-- GraphQL
+```sh
+npm install
+npm run dev
+```
+
+Open <http://localhost:4321>.
+
+## Add a project
+
+Create `src/content/projects/<slug>.mdx` with frontmatter that matches the schema in `src/content.config.ts`. Cover images live in `src/assets/projects/` and are referenced relatively.
+
+## Build
+
+```sh
+npm run build      # type-checks then builds to dist/
+npm run preview    # serve the production build locally
+```
