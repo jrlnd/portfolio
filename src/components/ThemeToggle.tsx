@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 function getInitialTheme(): Theme {
-  if (typeof document === 'undefined') return 'light';
-  return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
 export default function ThemeToggle() {
@@ -12,11 +12,11 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
+    root.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const next: Theme = theme === 'dark' ? 'light' : 'dark';
+  const next: Theme = theme === "dark" ? "light" : "dark";
 
   return (
     <button
@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-fg transition hover:bg-subtle"
     >
       <span aria-hidden="true" className="text-sm">
-        {theme === 'dark' ? '☼' : '☾'}
+        {theme === "dark" ? "☼" : "☾"}
       </span>
     </button>
   );
