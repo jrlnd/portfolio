@@ -90,7 +90,11 @@ export default function ChatPanel({
   }, [sessionId]);
 
   useEffect(() => {
-    if (!isStreaming) inputRef.current?.focus();
+    if (isStreaming) return;
+    // Skip on mobile — auto-focusing the textarea pops the soft keyboard,
+    // which is intrusive when the user just tapped a chat tab to read it.
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
+    inputRef.current?.focus();
   }, [isStreaming, messages.length]);
 
   // Auto-resize the textarea so it grows with content between min and max
