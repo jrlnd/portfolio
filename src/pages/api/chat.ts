@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { GoogleGenAI } from "@google/genai";
 import { profile } from "../../content/profile";
+import { isAllowedOrigin, rateLimit } from "../../lib/api-guards";
 
 export const prerender = false;
 
@@ -10,21 +11,6 @@ const MAX_MESSAGE_CHARS = 8000;
 const MAX_HISTORY = 40;
 
 const RATE_LIMIT = { windowMs: 60_000, max: 20 };
-const buckets = new Map<string, { count: number; resetAt: number }>();
-
-function rateLimit(ip: string): { ok: true } | { ok: false; retryAfter: number } {
-  const now = Date.now();
-  const bucket = buckets.get(ip);
-  if (!bucket || bucket.resetAt < now) {
-    buckets.set(ip, { count: 1, resetAt: now + RATE_LIMIT.windowMs });
-    return { ok: true };
-  }
-  if (bucket.count >= RATE_LIMIT.max) {
-    return { ok: false, retryAfter: Math.ceil((bucket.resetAt - now) / 1000) };
-  }
-  bucket.count += 1;
-  return { ok: true };
-}
 
 // In-band sentinels emitted into the stream when the upstream LLM errors. The
 // client detects these and surfaces dedicated UI (rate-limit banner / error
@@ -205,6 +191,10 @@ function isValidMessages(value: unknown): value is IncomingMessage[] {
 }
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  if (!isAllowedOrigin(request)) {
+    return new Response("Forbidden.", { status: 403 });
+  }
+
   const apiKey = import.meta.env.GEMINI_API_KEY;
   if (!apiKey) {
     return new Response(
@@ -214,7 +204,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const ip = clientAddress || "unknown";
-  const limit = rateLimit(ip);
+  const limit = await rateLimit(
+    `chat:${ip}`,
+    RATE_LIMIT.windowMs,
+    RATE_LIMIT.max,
+  );
   if (!limit.ok) {
     return new Response("Too many requests. Try again shortly.", {
       status: 429,

@@ -1,25 +1,11 @@
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { profile } from "../../content/profile";
+import { isAllowedOrigin, rateLimit } from "../../lib/api-guards";
 
 export const prerender = false;
 
 const RATE_LIMIT = { windowMs: 60_000, max: 3 };
-const buckets = new Map<string, { count: number; resetAt: number }>();
-
-function rateLimit(ip: string): { ok: true } | { ok: false; retryAfter: number } {
-  const now = Date.now();
-  const bucket = buckets.get(ip);
-  if (!bucket || bucket.resetAt < now) {
-    buckets.set(ip, { count: 1, resetAt: now + RATE_LIMIT.windowMs });
-    return { ok: true };
-  }
-  if (bucket.count >= RATE_LIMIT.max) {
-    return { ok: false, retryAfter: Math.ceil((bucket.resetAt - now) / 1000) };
-  }
-  bucket.count += 1;
-  return { ok: true };
-}
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_FIELD = 5000;
@@ -32,8 +18,16 @@ function jsonError(status: number, error: string, headers: Record<string, string
 }
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
+  if (!isAllowedOrigin(request)) {
+    return jsonError(403, "Forbidden.");
+  }
+
   const ip = clientAddress ?? "unknown";
-  const rl = rateLimit(ip);
+  const rl = await rateLimit(
+    `contact:${ip}`,
+    RATE_LIMIT.windowMs,
+    RATE_LIMIT.max,
+  );
   if (!rl.ok) {
     return jsonError(429, "Too many requests. Please try again later.", {
       "retry-after": String(rl.retryAfter),
