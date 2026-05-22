@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/outfit";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* Tokens reference CSS vars below so utilities respond to theme switch */
@@ -14,26 +14,277 @@
   --color-subtle: var(--subtle);
   --color-border: var(--border);
   --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-on-accent: var(--on-accent);
+  --color-sidebar: var(--sidebar-bg);
+  --color-sidebar-dark: var(--sidebar-bg-dark);
+  --color-chat: var(--chat-bg);
+  --color-retro-ink: var(--retro-ink);
+  --color-bubble-user: var(--bubble-user);
+  --color-bubble-ai: var(--bubble-ai);
+  --color-on-bubble: var(--on-bubble);
+
+  /* Default transition timing — overrides Tailwind's 150ms default for any
+     `transition` / `transition-colors` utility that doesn't specify its own. */
+  --default-transition-duration: 350ms;
+
+  /* Custom easing — used in inline transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Animation utilities — generated as animate-* */
+  --animate-message-in: messageIn 400ms var(--ease-out-expo) both;
+  --animate-message-in-user: messageInUser 300ms var(--ease-out-expo) both;
+  --animate-message-in-ai: messageInAi 300ms var(--ease-out-expo) both;
+  --animate-fade-in: fadeIn 240ms var(--ease-out-quart) both;
+  --animate-pop-in: popIn 160ms var(--ease-spring) both;
+  --animate-bar-in: barIn 200ms var(--ease-out-expo) both;
+  --animate-line-in: lineIn 250ms var(--ease-out-expo) both;
+  --animate-word-in: wordIn 400ms var(--ease-out-quart) both;
+  --animate-dot: dotBounce 1.2s ease-in-out infinite both;
+  --animate-blink: blink 1s steps(2, end) infinite;
+
+  @keyframes messageIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes messageInUser {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes messageInAi {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(-2px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes barIn {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes lineIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wordIn {
+    from {
+      opacity: 0;
+      transform: translateX(-4px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes lineSwipe {
+    from {
+      --line-reveal: -15%;
+    }
+    to {
+      --line-reveal: 100%;
+    }
+  }
+
+  @keyframes dotBounce {
+    0%,
+    80%,
+    100% {
+      transform: scale(0.6);
+      opacity: 0.4;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
+/* Light mode tokens. Used directly by the wrapper + sidebar; overridden
+   inside the chat card by `.chat-card`. */
 :root {
-  --bg: #fafaf7;
-  --fg: #111111;
-  --muted: #6b6b66;
-  --subtle: #f0eee7;
-  --border: #e8e6df;
-  --accent: #111111;
+  --bg: #fffdfa;
+  --fg: #2a2d2e;
+  --muted: #494d4e;
+  --subtle: #faf5ed;
+  --border: #e0d8c8;
+  --accent: #bf4342;
+  --secondary: #8c1c13;
+  --on-accent: #ffffff;
+  --sidebar-bg: #f0ebe3;
+  --sidebar-bg-dark: #c0b59c;
+  --chat-bg: #fbf7f0;
+  --retro-ink: #101010;
+  --bubble-user: #d3a094;
+  --bubble-ai: #97aaa6;
+  --on-bubble: #2a2d2e;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #0e0e0c;
-  --fg: #f4f3ee;
-  --muted: #9a988f;
-  --subtle: #1a1a17;
-  --border: #2a2a26;
-  --accent: #f4f3ee;
+  --bg: #30343f;
+  --fg: #ecece8;
+  --muted: #a0a0a8;
+  --subtle: #262b2c;
+  --border: #2a2e30;
+  --accent: #d95757;
+  --secondary: #ec8585;
+  --on-accent: #ffffff;
+  --sidebar-bg: #393a41;
+  --sidebar-bg-dark: #2f3037;
+  --chat-bg: #4b4c52;
+  --retro-ink: var(--sidebar-bg-dark);
+  --bubble-user: #d3a094;
+  --bubble-ai: #97aaa6;
+  --on-bubble: #2a2d2e;
   color-scheme: dark;
+}
+
+/* Chat container scope — overrides the resolved Tailwind tokens for the
+   main panel so its bg / subtle / border can differ from the sidebar's. */
+.chat-card {
+  --color-bg: var(--chat-bg);
+  --color-fg: #2a2d2e;
+  --color-muted: #494d4e;
+  --color-subtle: #f0ebe3;
+  --color-border: #e0d8c8;
+  --color-accent: #bf4342;
+  --color-secondary: #8c1c13;
+  --color-on-accent: #ffffff;
+  color-scheme: light;
+}
+
+.dark .chat-card {
+  --color-bg: var(--chat-bg);
+  --color-fg: #ecece8;
+  --color-muted: #b4b4b4;
+  --color-subtle: #3a3e49;
+  --color-border: #424653;
+  --color-accent: #d95757;
+  --color-secondary: #ec8585;
+  --color-on-accent: #ffffff;
+  color-scheme: dark;
+}
+
+
+/* iOS-style squircle corners. Falls back to standard circular corners in
+   browsers that don't yet support corner-shape. */
+.squircle {
+  corner-shape: squircle;
+}
+
+/* Retro scrollbar: chunky thumb in the same darker-sidebar shade used for
+   the chat container border, transparent track. */
+.scrollbar-retro {
+  scrollbar-color: var(--color-sidebar-dark) transparent;
+  scrollbar-width: auto;
+}
+
+.scrollbar-retro::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.scrollbar-retro::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-retro::-webkit-scrollbar-thumb {
+  background: var(--color-sidebar-dark);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.scrollbar-retro::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+  background-clip: padding-box;
+}
+
+/* Animated line reveal — a soft gradient mask sweeps left-to-right across the
+   line, "wiping" the text into view. Requires CSS @property to interpolate the
+   percentage; gracefully degrades to fully visible in older browsers. */
+@property --line-reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+.line-swipe {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black var(--line-reveal),
+    transparent calc(var(--line-reveal) + 15%)
+  );
+  mask-image: linear-gradient(
+    to right,
+    black var(--line-reveal),
+    transparent calc(var(--line-reveal) + 15%)
+  );
+  animation: lineSwipe 500ms var(--ease-out-quart) both;
 }
 
 @layer base {
@@ -41,9 +292,35 @@
     background: var(--bg);
     color: var(--fg);
     font-family: var(--font-sans);
+    font-size: 112.5%; /* 18px at the default 16px browser root */
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     scrollbar-gutter: stable;
+    transition:
+      background-color 240ms var(--ease-out-quart),
+      color 240ms var(--ease-out-quart);
+  }
+
+  /* Theme-aware surfaces also crossfade on toggle */
+  body,
+  aside,
+  header,
+  main,
+  section,
+  form,
+  input,
+  textarea,
+  button,
+  a {
+    transition:
+      background-color 350ms var(--ease-out-quart),
+      border-color 350ms var(--ease-out-quart),
+      color 350ms var(--ease-out-quart);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
   }
 
   body {
@@ -60,7 +337,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--fg);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 2px;
   }

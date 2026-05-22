@@ -33,3 +33,6 @@ pnpm-debug.log*
 
 # claude code local config
 .claude/
+
+# local-only utilities (Playwright scrapers etc.)
+scripts/

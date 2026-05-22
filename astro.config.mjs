@@ -4,13 +4,16 @@ import mdx from "@astrojs/mdx";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import vercel from "@astrojs/vercel";
+
 export default defineConfig({
-  // TODO: replace with your real production URL before deploy
-  site: "https://example.com",
+  site: "https://jrlnd.dev",
 
   integrations: [react(), mdx()],
 
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });
