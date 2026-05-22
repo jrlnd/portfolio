@@ -115,6 +115,7 @@ export default function ChatApp({ name }: Props) {
   const active = sessions.find((s) => s.id === activeId) ?? null;
 
   const handleNew = useCallback(() => {
+    if (!isDesktopRef.current) updateSidebar(false);
     setSessions((prev) => {
       const existing = prev.find(
         (s) => s.messages.length === 0 && s.title === "New chat",
@@ -133,16 +134,17 @@ export default function ChatApp({ name }: Props) {
       setIsStreaming(false);
       return [fresh, ...prev];
     });
-  }, [activeId]);
+  }, [activeId, updateSidebar]);
 
   const handleSelect = useCallback(
     (id: string) => {
+      if (!isDesktopRef.current) updateSidebar(false);
       if (id === activeId) return;
       abortRef.current?.abort();
       setActiveId(id);
       setIsStreaming(false);
     },
-    [activeId],
+    [activeId, updateSidebar],
   );
 
   const handleRename = useCallback((id: string, title: string) => {
