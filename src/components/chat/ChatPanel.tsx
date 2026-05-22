@@ -374,7 +374,7 @@ function ExperienceCard({ exp }: { exp: ExperienceCardData }) {
             {exp.skills.map((s) => (
               <span
                 key={s}
-                className="inline-flex items-center rounded-md border border-retro-ink bg-bg px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-fg shadow-[1px_1px_0_var(--color-retro-ink)]"
+                className="inline-flex items-center rounded-md border border-retro-ink bg-bg px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-fg"
               >
                 {s}
               </span>
