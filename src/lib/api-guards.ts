@@ -1,6 +1,6 @@
 import { kv } from "@vercel/kv";
 
-const ALLOWED_HOSTS = new Set(["jrlnd.dev"]);
+const ALLOWED_HOSTS = new Set(["jrlnd.dev", "www.jrlnd.dev"]);
 
 /**
  * Check whether the request's Origin / Referer points at a host we serve. Used
