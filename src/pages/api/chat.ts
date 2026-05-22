@@ -1,5 +1,4 @@
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
 import { GoogleGenAI } from "@google/genai";
 import { profile } from "../../content/profile";
 import { isAllowedOrigin, rateLimit } from "../../lib/api-guards";
@@ -122,18 +121,7 @@ function stripTodos(value: unknown): unknown {
 
 async function buildSystemPrompt(): Promise<string> {
   const cleaned = stripTodos(profile) as typeof profile;
-  const mdxProjects = (
-    await getCollection("projects", ({ data }) => !data.draft)
-  ).map((p) => ({
-    title: p.data.title,
-    summary: p.data.summary,
-    tags: p.data.tags,
-    year: p.data.year,
-    role: p.data.role ?? null,
-    liveUrl: p.data.liveUrl ?? null,
-    repoUrl: p.data.repoUrl ?? null,
-  }));
-  const projects = [...(cleaned.projects ?? []), ...mdxProjects];
+  const projects = cleaned.projects ?? [];
 
   return [
     cleaned.voice.persona,

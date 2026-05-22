@@ -7,6 +7,6 @@ const title = `${profile.name} — Ask Me Anything`;
 const description = `Chat with an AI assistant briefed on ${profile.name}'s work, skills, and experience.`;
 ---
 
-<BaseLayout title={title} description={description} bare>
+<BaseLayout title={title} description={description}>
   <ChatApp client:load name={profile.preferredName ?? profile.name} />
 </BaseLayout>

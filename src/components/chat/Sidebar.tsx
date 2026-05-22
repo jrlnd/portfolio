@@ -303,13 +303,13 @@ function SessionRow({
                 setEditing(false);
               }
             }}
-            className="w-full bg-transparent px-3 py-2 text-fg focus:outline-none"
+            className="w-full bg-transparent px-3 py-2 font-medium text-fg focus:outline-none"
           />
         ) : (
           <button
             type="button"
             onClick={onSelect}
-            className="flex-1 truncate px-3 py-2 text-left"
+            className="flex-1 truncate px-3 py-2 text-left font-medium"
             title={session.title}
           >
             {session.title}
