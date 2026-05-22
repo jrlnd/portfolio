@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@import "@fontsource-variable/jost";
+@import "@fontsource-variable/libre-franklin";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Jost Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Libre Franklin Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   /* Tokens reference CSS vars below so utilities respond to theme switch */
