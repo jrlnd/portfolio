@@ -310,10 +310,11 @@ function SessionRow({
           <button
             type="button"
             onClick={onSelect}
-            className="flex-1 truncate px-3 py-2 text-left font-medium"
+            className="flex flex-1 min-w-0 items-center gap-2 px-3 py-2 text-left font-medium"
             title={session.title}
           >
-            {session.title}
+            {session.locked && <PresetIcon title={session.title} />}
+            <span className="truncate">{session.title}</span>
           </button>
         )}
 
@@ -387,4 +388,48 @@ function ResetIcon() {
       <path d="M3 3v5h5" />
     </svg>
   );
+}
+
+function PresetIcon({ title }: { title: string }) {
+  const common = {
+    "aria-hidden": "true" as const,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-4 w-4 shrink-0",
+  };
+  switch (title) {
+    case "About":
+      return (
+        <svg {...common}>
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      );
+    case "Experience":
+      return (
+        <svg {...common}>
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      );
+    case "Projects":
+      return (
+        <svg {...common}>
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+        </svg>
+      );
+    case "Contact":
+      return (
+        <svg {...common}>
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m22 7-10 5L2 7" />
+        </svg>
+      );
+    default:
+      return null;
+  }
 }
