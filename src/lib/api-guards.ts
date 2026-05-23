@@ -1,4 +1,4 @@
-import { kv } from "@vercel/kv";
+import { createClient } from "@vercel/kv";
 
 const ALLOWED_HOSTS = new Set(["jrlnd.dev", "www.jrlnd.dev"]);
 
@@ -28,6 +28,17 @@ const KV_CONFIGURED =
   Boolean(import.meta.env.KV_REST_API_URL) &&
   Boolean(import.meta.env.KV_REST_API_TOKEN);
 
+// Build the client from `import.meta.env` (Astro's idiom) instead of relying
+// on the default `kv` singleton, which reads `process.env` directly — Vite
+// doesn't mirror `.env` into `process.env`, so the singleton would be unusable
+// in local dev even with valid credentials.
+const kv = KV_CONFIGURED
+  ? createClient({
+      url: import.meta.env.KV_REST_API_URL!,
+      token: import.meta.env.KV_REST_API_TOKEN!,
+    })
+  : null;
+
 // In-memory fallback bucket (per serverless instance). Entries are pruned on
 // each call so the map can't grow without bound.
 const memoryBuckets = new Map<string, { count: number; resetAt: number }>();
@@ -44,7 +55,7 @@ export async function rateLimit(
   windowMs: number,
   max: number,
 ): Promise<RateLimitResult> {
-  if (KV_CONFIGURED) {
+  if (kv) {
     try {
       const count = await kv.incr(key);
       if (count === 1) {
