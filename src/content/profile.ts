@@ -26,6 +26,20 @@ export const profile = {
 
   When I'm not at my computer, you'll usually find me playing volleyball 🏐, enjoying board games 🎲, planning my next trip 🏖️, or just trying to be a competent dog dad 🐕.`,
 
+  // Personal backstory — JR is happy for the agent to share these when asked.
+  background: {
+    hometown: "Born and raised in Toronto.",
+    intoCoding:
+      "Got hooked on development as a kid watching his older brother build things in Adobe Dreamweaver — the idea of making something other people could open and use stuck with him and became the start of his interest in development.",
+    chinaYears:
+      "Taught Ontario and UK A-Level / IGCSE Computer Science curriculum at international schools in China from 2017 to 2021 — his actual teachable subject, not ESL. Hadn't traveled outside Canada before that; the experience sparked a lasting love of travel, new places, and new experiences.",
+    return:
+      "Returned to Canada when COVID-19 halted further travel plans, and pivoted back to full-stack development.",
+    designToEngineering:
+      "Experience-wise, came up through design first (drag-and-drop layouts, WYSIWYG editors, visual problem-solving). Picking up coding and CS theory gave him 'new superpowers' for tackling larger, more complex problems — and he enjoys both kinds of problem-solving roughly equally.",
+    languages: ["English"],
+  },
+
   skills: {
     frontend: [
       "React",
@@ -287,6 +301,17 @@ export const profile = {
     status: "Open to new opportunities",
     detail:
       "JR is currently a Senior Frontend Developer at Therefore Interactive (April 2022 – present) and is actively exploring new senior full-stack and frontend roles.",
+    preferences: {
+      roleType: "Senior IC; prefers frontend-leaning work, open to full-stack.",
+      track:
+        "Prefers the IC track long-term, open to hybrid IC/lead arrangements so long as he's still building cool things.",
+      workMode:
+        "Remote or hybrid preferred; open to in-office depending on compensation and circumstances.",
+      location:
+        "Toronto / GTA preferred; open to relocation depending on the package, role, and company.",
+      industries:
+        "Edtech and travel-adjacent companies are especially appealing — they tie back to his teaching background and love of travel — but he's open to any industry with interesting problems.",
+    },
   },
 
   links: {
@@ -305,6 +330,46 @@ export const profile = {
     "Came to engineering through design — fluent in both Figma and TypeScript, with strong UX-focused engineering instincts.",
     "Spent four years teaching CS to teenagers in China; comfortable explaining technical ideas to non-technical audiences.",
     "Experience mentoring developers and improving onboarding — cares about developer experience as much as user experience.",
+    "Pragmatic shipper — balances polish with delivery. Invests time in core functionality, reliability, and major UX; comfortable shipping iteratively and improving smaller details based on feedback.",
+    "Methodical debugger — reproduces consistently, isolates variables, tests assumptions, and rubber-ducks before guessing at fixes.",
+    "Build-to-learn when picking up new tools and frameworks; uses AI to close knowledge gaps but always works to understand the underlying solution rather than depend on the tool blindly.",
+    "Thrives on teams with trust, ownership, and calm, solution-oriented leadership — and still carries the instincts of a teacher and lifelong learner.",
+    "Sees AI-assisted development as a paradigm shift in workflow, not a threat or a savior — fundamentals (architecture, tradeoffs, performance, security, maintainability) are still what separates effective AI use from blind dependence.",
+  ],
+
+  // Hobbies, interests, and life-outside-work details. The agent should
+  // paraphrase these into natural conversational answers — never recite verbatim.
+  outsideOfWork: {
+    volleyball:
+      "Plays year-round — beach in summer, indoor when it's not, and drop-ins with friends when he can. Rec-league team is 'Catch These Hands!'. Position: libero — loves playing defensively; says digging a difficult spike is one of the best dopamine rushes out there. Has been playing since elementary school.",
+    boardGames: {
+      party: ["Flip 7", "Moose Master", "That's Not a Hat"],
+      strategy: ["Unmatched", "7 Wonders", "Catan"],
+      note: "Leans toward heavier strategy games when he has the time; light party games when he doesn't.",
+    },
+    travel: {
+      favoriteTrip:
+        "Vietnam, north to south — Hanoi to Ho Chi Minh City with stops in between. Highlights: Da Nang, the Golden Hands Bridge, cheap bánh mì, and a good cup of egg coffee.",
+      bucketList:
+        "Visiting every location on the Seven Wonders of the World. Next stop: Brazil, to see Christ the Redeemer in Rio.",
+    },
+    dog: "Boba — chocolate-merle mini bernedoodle, born September 23, 2025. The newest love of his life and the bane of his existence at the same time (which, per JR, is pretty typical for a dog-owner relationship).",
+    torontoRecs: [
+      "Conejo Negro (Ossington Ave & College St) — and the Ossington/College area in general is a great stretch to wander for food.",
+      "Sisters & Co — the Earl Grey pancakes are the best pancakes he's ever had, though more dessert than breakfast.",
+    ],
+    watching:
+      "Into K-dramas right now. Currently watching Gold Rush — a thriller about an airport worker pulled into a gold-smuggling operation. Top recommendation for first-time K-drama viewers: Crash Landing on You, a romcom about a wealthy South Korean businesswoman who has a paragliding accident and ends up in North Korea, where a reserved army officer risks everything to protect her.",
+  },
+
+  // Surprising or fun details visitors sometimes dig for.
+  funFacts: [
+    "Redesigned his high school's mascot logo — it's still painted on the gymnasium floor years later. A silent credit he's quietly proud of.",
+    "Taught the actual Ontario and UK A-Level / IGCSE Computer Science curriculum in China — not ESL. People are often surprised by that.",
+    "Currently excited about the TanStack ecosystem, especially TanStack Start — strong DX and a thoughtful evolution of frontend tooling rather than abstraction for its own sake.",
+    "Doesn't like dwelling on what he'd redo from scratch — technology evolves and there's always a lesson to take forward.",
+    "If he weren't a developer, he'd probably be teaching — even back in tech, he still has the heart of a teacher and a lifelong learner.",
+    "Editor: VS Code. Indentation: spaces (tabs can conflict with accessibility). Coding: dark mode. Visual testing: light mode.",
   ],
 
   voice: {
@@ -322,6 +387,7 @@ export const profile = {
       "If someone asks for contact info, share the email directly and suggest they reach out.",
       "If a user asks about availability, hiring, or whether JR is open to new roles, share that he's currently at Therefore Interactive (since April 2022) and is actively exploring new senior full-stack and frontend opportunities — then suggest they reach out via email. Don't volunteer this unprompted.",
       "Format any email address as a markdown mailto link, e.g. [rjgaoat@gmail.com](mailto:rjgaoat@gmail.com). Format any URL (LinkedIn, GitHub, project links, resume) as a markdown link with a short label, e.g. [GitHub](https://github.com/jrlnd) or [LinkedIn](https://www.linkedin.com/in/jrlnd/). Never paste a raw URL.",
+      "For personal questions (background, hobbies, dog, travel, food/Toronto recs, what he's watching, etc.), draw on the background, outsideOfWork, and funFacts fields and weave the details into natural conversational answers — do not recite the fields verbatim or list them back as bullet points. JR is happy to share these; don't deflect to 'ask him directly' for topics already covered there.",
     ],
 
     guardrails: [
