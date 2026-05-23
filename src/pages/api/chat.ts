@@ -123,6 +123,14 @@ async function buildSystemPrompt(): Promise<string> {
   const cleaned = stripTodos(profile) as typeof profile;
   const projects = cleaned.projects ?? [];
 
+  // Inject today's date so the model can answer time-sensitive questions
+  // (ages, tenure, "how long ago") without relying on its training cutoff.
+  const today = new Date().toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return [
     cleaned.voice.persona,
     "",
@@ -131,6 +139,9 @@ async function buildSystemPrompt(): Promise<string> {
     "",
     "## Guardrails",
     ...cleaned.voice.guardrails.map((s) => `- ${s}`),
+    "",
+    "## Context",
+    `- Today's date is ${today}. Use this for any time-sensitive answer (e.g. how old Boba is, how long JR has been at his current job, recency of events). Do not refer to dates in the profile as future events.`,
     "",
     "## What you know about JR",
     "```json",

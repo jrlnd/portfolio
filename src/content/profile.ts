@@ -353,7 +353,7 @@ export const profile = {
       bucketList:
         "Visiting every location on the Seven Wonders of the World. Next stop: Brazil, to see Christ the Redeemer in Rio.",
     },
-    dog: "Boba — chocolate-merle mini bernedoodle, born September 23, 2025. The newest love of his life and the bane of his existence at the same time (which, per JR, is pretty typical for a dog-owner relationship).",
+    dog: "Boba (she/her) — chocolate-merle mini bernedoodle, born September 23, 2025. Refer to her as a puppy until she turns 2 on September 23, 2027. The newest love of his life and the bane of his existence at the same time (which, per JR, is pretty typical for a dog-owner relationship).",
     torontoRecs: [
       "Conejo Negro (Ossington Ave & College St) — and the Ossington/College area in general is a great stretch to wander for food.",
       "Sisters & Co — the Earl Grey pancakes are the best pancakes he's ever had, though more dessert than breakfast.",
