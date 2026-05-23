@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { arrayMove } from "@dnd-kit/sortable";
 import ChatPanel from "./ChatPanel";
 import Sidebar from "./Sidebar";
 import { buildPresets } from "./presets";
@@ -379,14 +380,9 @@ export default function ChatApp({ name }: Props) {
       // The empty "New chat" is pinned to the top — block dragging it,
       // and block dropping above it when it's the first row.
       if (isEmpty(prev[srcIdx])) return prev;
-      const next = prev.slice();
-      const [item] = next.splice(srcIdx, 1);
-      let insertAt = srcIdx < dstIdx ? dstIdx - 1 : dstIdx;
-      if (insertAt === 0 && next.length > 0 && isEmpty(next[0])) {
-        insertAt = 1;
-      }
-      next.splice(insertAt, 0, item);
-      return next;
+      const pinnedAtTop = prev.length > 0 && isEmpty(prev[0]);
+      const effectiveDst = pinnedAtTop && dstIdx === 0 ? 1 : dstIdx;
+      return arrayMove(prev, srcIdx, effectiveDst);
     });
   }, []);
 
