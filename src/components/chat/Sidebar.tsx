@@ -173,7 +173,8 @@ export default function Sidebar({
               "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-chat",
             ].join(" ")}
           >
-            {confirmingClear ? "Click again to confirm" : "Clear all chats"}
+            <ResetIcon />
+            {confirmingClear ? "Click again to confirm" : "Reset all chats"}
           </button>
         </div>
       </aside>
@@ -246,7 +247,7 @@ function SessionRow({
   }
 
   function openContextMenu(e: React.MouseEvent) {
-    if (editing) return;
+    if (editing || session.locked) return;
     e.preventDefault();
     setMenuPos({ x: e.clientX, y: e.clientY });
     setMenuOpen(true);
@@ -316,7 +317,7 @@ function SessionRow({
           </button>
         )}
 
-        {!editing && (
+        {!editing && !session.locked && (
           <div ref={menuRef} className="relative pr-1">
             <button
               type="button"
@@ -367,5 +368,23 @@ function SessionRow({
         )}
       </div>
     </li>
+  );
+}
+
+function ResetIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+    >
+      <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+      <path d="M3 3v5h5" />
+    </svg>
   );
 }

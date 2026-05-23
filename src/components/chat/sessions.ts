@@ -55,11 +55,18 @@ export interface Session {
   createdAt: number;
   updatedAt: number;
   messages: Message[];
+  // Preset sessions (About / Experience / Projects / Contact) are locked so
+  // visitors can't rename or delete them. Unset/false on user-created chats.
+  locked?: boolean;
 }
 
 const SESSIONS_KEY = "jr-chat-sessions-v1";
 const ACTIVE_KEY = "jr-chat-active-v1";
 const TITLE_MAX = 48;
+
+// Used to retroactively lock preset sessions in localStorage saved before the
+// `locked` flag existed. Kept in sync with the titles in `presets.ts`.
+const PRESET_TITLES = new Set(["About", "Experience", "Projects", "Contact"]);
 
 export function newSession(): Session {
   const now = Date.now();
@@ -87,15 +94,19 @@ export function loadSessions(): Session[] {
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (s): s is Session =>
-        s &&
-        typeof s.id === "string" &&
-        typeof s.title === "string" &&
-        typeof s.createdAt === "number" &&
-        typeof s.updatedAt === "number" &&
-        Array.isArray(s.messages),
-    );
+    return parsed
+      .filter(
+        (s): s is Session =>
+          s &&
+          typeof s.id === "string" &&
+          typeof s.title === "string" &&
+          typeof s.createdAt === "number" &&
+          typeof s.updatedAt === "number" &&
+          Array.isArray(s.messages),
+      )
+      .map((s) =>
+        s.locked || !PRESET_TITLES.has(s.title) ? s : { ...s, locked: true },
+      );
   } catch {
     return [];
   }

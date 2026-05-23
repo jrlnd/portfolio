@@ -163,6 +163,7 @@ export function buildPresets(): Session[] {
       title: "About",
       createdAt: now - 1,
       updatedAt: now - 1,
+      locked: true,
       messages: [
         { role: "user", content: `Hi! Tell me about ${name}.` },
         { role: "assistant", content: welcomeReply },
@@ -173,6 +174,7 @@ export function buildPresets(): Session[] {
       title: "Experience",
       createdAt: now - 2,
       updatedAt: now - 2,
+      locked: true,
       messages: [
         { role: "user", content: `What's ${name}'s work experience?` },
         ...experienceMessages(),
@@ -183,6 +185,7 @@ export function buildPresets(): Session[] {
       title: "Projects",
       createdAt: now - 3,
       updatedAt: now - 3,
+      locked: true,
       messages: [
         { role: "user", content: `What projects has ${name} worked on?` },
         ...projectMessages(),
@@ -193,6 +196,7 @@ export function buildPresets(): Session[] {
       title: "Contact",
       createdAt: now - 4,
       updatedAt: now - 4,
+      locked: true,
       messages: [
         { role: "user", content: `How can I get in touch with ${name}?` },
         ...contactMessages(),
