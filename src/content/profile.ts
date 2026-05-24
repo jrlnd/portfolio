@@ -11,13 +11,13 @@
 export const profile = {
   name: "Rolando JR Gaoat",
   preferredName: "JR",
-  title: "Senior Full-Stack Developer",
+  title: "Senior Developer",
   location: "Toronto, ON",
   pronouns: "TODO: e.g. he/him",
 
   // Shown at the top of the chat as a tagline.
   tagline:
-    "Senior full-stack developer with 8+ years of experience building scalable React, Next.js, and TypeScript applications — focused on performance, accessibility, and modern frontend architecture.",
+    "Senior Full-Stack Developer with 8+ years in design and engineering, building thoughtful web applications and polished user experiences with a focus on accessibility, performance, and client collaboration.",
 
   // The agent leans on this for the broad "tell me about JR" answer.
   bio: `I'm a senior full-stack developer based in Toronto, focused on frontend architecture for CMS-driven platforms. I care about the parts of frontend engineering that quietly determine whether a product actually holds up over time — accessibility, performance, scalable component systems, and maintainable architecture.
@@ -149,7 +149,7 @@ export const profile = {
 
   experience: [
     {
-      role: "Senior Frontend Developer",
+      role: "Senior Developer",
       company: "Therefore Interactive",
       companyUrl: "https://www.therefore.ca/",
       dates: "Apr 2022 – Present",
@@ -171,7 +171,7 @@ export const profile = {
         "Claude",
       ],
       narrative:
-        "Architected and delivered 20+ decoupled apps for enterprise clients — onboarding flows, e-commerce, authenticated systems, complex API work. Most of the leverage has come from raising the floor for the team: setting up architecture patterns, component libraries, and design-system practices that knocked dev time down 30%+, plus performance work that lifted Lighthouse scores 20+ points and cut load times in half through SSR/SSG and accessible implementation.",
+        "Architected and delivered 20+ decoupled React and Next.js applications for enterprise clients — operational platforms, authenticated systems, ecommerce, and complex API-driven workflows. Standardized TypeScript architecture patterns, reusable component libraries, and Storybook-driven workflows that cut development time by 30%+ and improved onboarding. Optimized frontend performance and accessibility through SSR/SSG, caching strategies, and WCAG-compliant implementation — lifting Lighthouse scores by 20+ points and reducing load times by up to 50%. Collaborated with stakeholders, designers, and engineering teams across Agile delivery cycles to define requirements, prioritize milestones, and align implementation with business goals. Mentored junior developers through pair programming, code reviews, and day-to-day frontend guidance across multiple client projects.",
     },
     {
       role: "Computer Science Teacher",
@@ -300,7 +300,7 @@ export const profile = {
   availability: {
     status: "Open to new opportunities",
     detail:
-      "JR is currently a Senior Frontend Developer at Therefore Interactive (April 2022 – present) and is actively exploring new senior full-stack and frontend roles.",
+      "JR is currently a Senior Developer at Therefore Interactive (April 2022 – present) and is actively exploring new senior full-stack and frontend roles.",
     preferences: {
       roleType: "Senior IC; prefers frontend-leaning work, open to full-stack.",
       track:
