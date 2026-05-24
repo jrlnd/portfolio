@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { profile } from "../../content/profile";
+import { MenuItemLink, MenuPopover } from "./MenuPopover";
 
 const RESUME_URL = profile.links.resume;
 const DOWNLOAD_NAME = "JR-Gaoat-Resume.pdf";
@@ -17,98 +17,35 @@ export default function ResumeButton({
   triggerContent,
   triggerAriaLabel,
 }: Props) {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    function handleClick(e: MouseEvent) {
-      if (containerRef.current?.contains(e.target as Node)) return;
-      setOpen(false);
-    }
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("mousedown", handleClick);
-    window.addEventListener("keydown", handleKey);
-    return () => {
-      window.removeEventListener("mousedown", handleClick);
-      window.removeEventListener("keydown", handleKey);
-    };
-  }, [open]);
-
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-label={triggerAriaLabel ?? "Resume options"}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        className={
-          triggerClassName ??
-          "squircle inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-muted transition-colors hover:bg-subtle hover:text-fg"
+    <div className={className}>
+      <MenuPopover
+        triggerClassName={triggerClassName}
+        triggerAriaLabel={triggerAriaLabel ?? "Resume options"}
+        popupAriaLabel="Resume options"
+        triggerContent={
+          triggerContent ?? (
+            <>
+              <DocIcon />
+              Resume
+            </>
+          )
         }
       >
-        {triggerContent ?? (
-          <>
-            <DocIcon />
-            Resume
-          </>
-        )}
-      </button>
-
-      {open && (
-        <div
-          role="menu"
-          aria-label="Resume options"
-          className="squircle absolute bottom-full left-1/2 z-30 mb-2 flex -translate-x-1/2 animate-pop-in items-stretch gap-1 rounded-xl border-2 border-retro-ink bg-bg p-1.5 shadow-[3px_3px_0_var(--color-retro-ink)]"
-        >
-          <ItemLink
-            href={RESUME_URL}
-            external
-            icon={<EyeIcon />}
-            label="Preview"
-          />
-          <ItemLink
-            href={RESUME_URL}
-            download={DOWNLOAD_NAME}
-            icon={<DownloadIcon />}
-            label="Download"
-          />
-        </div>
-      )}
+        <MenuItemLink
+          href={RESUME_URL}
+          external
+          icon={<EyeIcon />}
+          label="Preview"
+        />
+        <MenuItemLink
+          href={RESUME_URL}
+          download={DOWNLOAD_NAME}
+          icon={<DownloadIcon />}
+          label="Download"
+        />
+      </MenuPopover>
     </div>
-  );
-}
-
-interface ItemProps {
-  icon: React.ReactNode;
-  label: string;
-}
-
-const itemClass =
-  "squircle flex w-16 flex-col items-center justify-center gap-1 rounded-md px-2 py-2 text-[10px] font-medium uppercase tracking-wide text-fg no-underline transition-colors hover:bg-subtle";
-
-function ItemLink({
-  href,
-  external,
-  download,
-  icon,
-  label,
-}: ItemProps & { href: string; external?: boolean; download?: string }) {
-  return (
-    <a
-      role="menuitem"
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
-      download={download}
-      className={itemClass}
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
   );
 }
 

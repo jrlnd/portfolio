@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ContactModal from "./ContactModal";
+import { MenuItemButton, MenuItemLink, MenuPopover } from "./MenuPopover";
 
 interface Props {
   email: string;
@@ -7,32 +8,17 @@ interface Props {
   className?: string;
 }
 
+const TRIGGER_CLASS =
+  "animate-fade-in cursor-pointer bg-transparent text-secondary underline decoration-secondary underline-offset-2 transition-opacity hover:opacity-80";
+
 export default function EmailMenu({ email, children, className = "" }: Props) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const containerRef = useRef<HTMLSpanElement>(null);
 
   const gmailUrl = `https://mail.google.com/mail/?extsrc=mailto&url=${encodeURIComponent(`mailto:${email}`)}`;
   const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(email)}`;
   const mailtoUrl = `mailto:${email}`;
-
-  useEffect(() => {
-    if (!open) return;
-    function handleClick(e: MouseEvent) {
-      if (containerRef.current?.contains(e.target as Node)) return;
-      setOpen(false);
-    }
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("mousedown", handleClick);
-    window.addEventListener("keydown", handleKey);
-    return () => {
-      window.removeEventListener("mousedown", handleClick);
-      window.removeEventListener("keydown", handleKey);
-    };
-  }, [open]);
 
   useEffect(() => {
     if (!copied) return;
@@ -50,96 +36,45 @@ export default function EmailMenu({ email, children, className = "" }: Props) {
   }
 
   return (
-    <span ref={containerRef} className={`relative inline-block ${className}`}>
-      <a
-        href={mailtoUrl}
-        onClick={(e) => {
-          e.preventDefault();
-          setOpen((v) => !v);
-        }}
-        className="animate-fade-in text-secondary underline decoration-secondary underline-offset-2 transition-opacity hover:opacity-80"
+    <span className={`inline-block ${className}`}>
+      <MenuPopover
+        open={open}
+        onOpenChange={setOpen}
+        triggerClassName={TRIGGER_CLASS}
+        triggerAriaLabel={`Options for ${email}`}
+        popupAriaLabel="Email options"
+        triggerContent={children}
       >
-        {children}
-      </a>
-
-      {open && (
-        <span
-          role="menu"
-          aria-label="Email options"
-          className="squircle absolute bottom-full left-1/2 z-30 mb-2 flex -translate-x-1/2 animate-pop-in items-stretch gap-1 rounded-xl border-2 border-retro-ink bg-bg p-1.5 shadow-[3px_3px_0_var(--color-retro-ink)]"
-        >
-          <ItemLink
-            href={gmailUrl}
-            external
-            icon={<GmailIcon />}
-            label="Gmail"
-          />
-          <ItemLink
-            href={outlookUrl}
-            external
-            icon={<OutlookIcon />}
-            label="Outlook"
-          />
-          <ItemButton
-            onClick={copyEmail}
-            icon={copied ? <CheckIcon /> : <CopyIcon />}
-            label={copied ? "Copied" : "Copy"}
-          />
-          <ItemButton
-            onClick={() => {
-              setOpen(false);
-              setModalOpen(true);
-            }}
-            icon={<FormIcon />}
-            label="Form"
-          />
-          <ItemLink href={mailtoUrl} icon={<MailIcon />} label="Default" />
-        </span>
-      )}
+        <MenuItemLink
+          href={gmailUrl}
+          external
+          icon={<GmailIcon />}
+          label="Gmail"
+        />
+        <MenuItemLink
+          href={outlookUrl}
+          external
+          icon={<OutlookIcon />}
+          label="Outlook"
+        />
+        <MenuItemButton
+          onClick={copyEmail}
+          icon={copied ? <CheckIcon /> : <CopyIcon />}
+          label={copied ? "Copied" : "Copy"}
+        />
+        <MenuItemButton
+          onClick={() => {
+            setOpen(false);
+            setModalOpen(true);
+          }}
+          icon={<FormIcon />}
+          label="Form"
+        />
+        <MenuItemLink href={mailtoUrl} icon={<MailIcon />} label="Default" />
+      </MenuPopover>
 
       <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </span>
-  );
-}
-
-interface ItemProps {
-  icon: React.ReactNode;
-  label: string;
-}
-
-const itemClass =
-  "squircle flex w-16 flex-col items-center justify-center gap-1 rounded-md px-2 py-2 text-[10px] font-medium uppercase tracking-wide text-fg no-underline transition-colors hover:bg-subtle";
-
-function ItemButton({
-  onClick,
-  icon,
-  label,
-}: ItemProps & { onClick: () => void }) {
-  return (
-    <button type="button" role="menuitem" onClick={onClick} className={itemClass}>
-      {icon}
-      <span>{label}</span>
-    </button>
-  );
-}
-
-function ItemLink({
-  href,
-  external,
-  icon,
-  label,
-}: ItemProps & { href: string; external?: boolean }) {
-  return (
-    <a
-      role="menuitem"
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
-      className={itemClass}
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
   );
 }
 
