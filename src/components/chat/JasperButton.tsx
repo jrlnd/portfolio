@@ -33,7 +33,7 @@ export default function JasperButton({ className = "" }: Props) {
         aria-label="About JASPER"
         aria-expanded={open}
         aria-haspopup="dialog"
-        className="squircle inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-accent transition-colors hover:bg-accent/10"
+        className="squircle inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent transition-colors hover:bg-accent/10 md:text-xs"
       >
         <BotIcon />
         JASPER

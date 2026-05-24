@@ -101,13 +101,13 @@ export default function Sidebar({
         ].join(" ")}
         aria-label="Chat sessions"
       >
-        <div className="grid grid-cols-3 items-center px-4 py-4 md:pt-[calc(0.625rem+0.25rem+1px)]">
+        <div className="grid grid-cols-3 items-center px-3 py-3 md:px-4 md:py-4 md:pt-[calc(0.625rem+0.25rem+1px)]">
           <div aria-hidden="true" />
           <button
             type="button"
             onClick={onNew}
             aria-label="Start a new chat"
-            className="cursor-pointer justify-self-center bg-transparent text-2xl font-black uppercase text-white [-webkit-text-stroke:4px_#000] [paint-order:stroke_fill] [text-shadow:3px_3px_0_#000]"
+            className="inline-flex h-9 cursor-pointer items-center justify-self-center bg-transparent text-2xl font-black uppercase leading-none text-white [-webkit-text-stroke:4px_#000] [paint-order:stroke_fill] [text-shadow:3px_3px_0_#000]"
           >
             jrlnd.dev
           </button>

@@ -275,6 +275,7 @@ export default function ChatPanel({
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               rows={1}
+              enterKeyHint="send"
               placeholder={
                 isRateLimited
                   ? `Paused — try again in ${rateLimitSecondsLeft}s`
@@ -293,7 +294,7 @@ export default function ChatPanel({
                 type="submit"
                 disabled={isStreaming || isRateLimited || !input.trim()}
                 aria-label="Send message"
-                className="squircle -mr-1.5 shrink-0 rounded-full border-2 border-retro-ink bg-accent p-1.5 text-on-accent shadow-[2px_2px_0_var(--color-retro-ink)] transition-all duration-100 hover:opacity-90 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:opacity-30 disabled:active:translate-x-0 disabled:active:translate-y-0 disabled:active:shadow-[2px_2px_0_var(--color-retro-ink)]"
+                className="squircle -mr-1.5 hidden shrink-0 rounded-full border-2 border-retro-ink bg-accent p-1.5 text-on-accent shadow-[2px_2px_0_var(--color-retro-ink)] transition-all duration-100 hover:opacity-90 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:opacity-30 disabled:active:translate-x-0 disabled:active:translate-y-0 disabled:active:shadow-[2px_2px_0_var(--color-retro-ink)] md:inline-flex"
               >
                 <svg
                   aria-hidden="true"
